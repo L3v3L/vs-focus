@@ -2,6 +2,12 @@
 
 All notable changes to the "vs-focus" extension will be documented in this file.
 
+## [0.0.4] - 2020-02-23
+
+### Added
+
+- icon
+
 ## [0.0.3] - 2020-02-23
 
 ### Added
