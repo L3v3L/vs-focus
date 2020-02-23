@@ -2,9 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 
-let dt = vscode.window.createTextEditorDecorationType({
-            opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+""
-        });
+let dt = vscode.window.createTextEditorDecorationType({});
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -32,13 +30,19 @@ function activate(context) {
 
         let RangeBefore = new vscode.Range(startDocument,startSelection);
         let RangeAfter = new vscode.Range(endSelection, endDocument);
-        console.log(vscode.workspace.getConfiguration('vsfocus').get('opacity')+"");
 
         dt.dispose();
+
         if(startSelection.line != endSelection.line || startSelection.character != endSelection.character){
-            dt = vscode.window.createTextEditorDecorationType({
+            let deco = {
                 opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+""
-            });
+            }
+            let color = vscode.workspace.getConfiguration('vsfocus').get('color');
+            if(color){
+                deco.color = color;
+            }
+
+            dt = vscode.window.createTextEditorDecorationType(deco);
 
             editor.setDecorations(dt, [
                 RangeBefore,RangeAfter

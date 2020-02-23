@@ -34,6 +34,11 @@
                     "minimum": 0,
                     "maximum": 1,
                     "description": "Opacity of unfocused text."
+                },
+                "vsfocus.color": {
+                    "type": "string",
+                    "default": "#ffffff",
+                    "description": "Color of unfocused text (leave empty for syntax highlighting)"
                 }
             }
         }
