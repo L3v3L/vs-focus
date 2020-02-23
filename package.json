@@ -3,7 +3,7 @@
     "displayName": "vs-focus",
     "description": "hide everything but selected text",
     "publisher": "IvoBarros",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/L3v3L/vs-focus"
