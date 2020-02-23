@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to the "vs-focus" extension will be documented in this file.
+All notable changes to the Focus extension will be documented in this file.
 
 ## [0.0.5] - 2020-02-23
 
