@@ -35,7 +35,7 @@ function activate(context) {
 
         if(startSelection.line != endSelection.line || startSelection.character != endSelection.character){
             let deco = {
-                opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+""
+                opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+" !important",
             }
             let color = vscode.workspace.getConfiguration('vsfocus').get('color');
             if(color){
