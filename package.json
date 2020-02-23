@@ -1,10 +1,14 @@
 {
     "name": "vs-focus",
-    "displayName": "vs-focus",
-    "description": "hide everything but selected text",
+    "displayName": "Focus",
+    "description": "Hide everything but selected text",
     "publisher": "IvoBarros",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "icon": "icon.png",
+    "galleryBanner": {
+        "color": "#25002b",
+        "theme": "dark"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/L3v3L/vs-focus"
@@ -12,6 +16,13 @@
     "engines": {
         "vscode": "^1.42.0"
     },
+    "keywords": [
+        "hide",
+        "narrow",
+        "fold",
+        "highlight",
+        "distraction"
+    ],
     "categories": [
         "Other"
     ],

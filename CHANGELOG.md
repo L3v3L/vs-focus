@@ -2,6 +2,12 @@
 
 All notable changes to the "vs-focus" extension will be documented in this file.
 
+## [0.0.5] - 2020-02-23
+
+### Added
+
+- better vscode market place meta data
+
 ## [0.0.4] - 2020-02-23
 
 ### Added
