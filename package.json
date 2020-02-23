@@ -3,7 +3,7 @@
     "displayName": "vs-focus",
     "description": "hide everything but selected text",
     "publisher": "IvoBarros",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": {
         "type": "git",
         "url": "https://github.com/L3v3L/vs-focus"
@@ -24,7 +24,24 @@
                 "command": "extension.focus",
                 "title": "Focus"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Focus",
+            "properties": {
+                "vsfocus.opacity": {
+                    "type": "number",
+                    "default": 0.2,
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Opacity of unfocused text."
+                },
+                "vsfocus.color": {
+                    "type": "string",
+                    "default": "#ffffff",
+                    "description": "Color of unfocused text (leave empty for syntax highlighting)"
+                }
+            }
+        }
     },
     "scripts": {
         "lint": "eslint .",
