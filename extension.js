@@ -3,7 +3,7 @@
 const vscode = require('vscode');
 
 let dt = vscode.window.createTextEditorDecorationType({
-            opacity: '0.2'
+            opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+""
         });
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -32,11 +32,12 @@ function activate(context) {
 
         let RangeBefore = new vscode.Range(startDocument,startSelection);
         let RangeAfter = new vscode.Range(endSelection, endDocument);
+        console.log(vscode.workspace.getConfiguration('vsfocus').get('opacity')+"");
 
         dt.dispose();
         if(startSelection.line != endSelection.line || startSelection.character != endSelection.character){
             dt = vscode.window.createTextEditorDecorationType({
-                opacity: '0.1'
+                opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+""
             });
 
             editor.setDecorations(dt, [
