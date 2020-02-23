@@ -24,7 +24,19 @@
                 "command": "extension.focus",
                 "title": "Focus"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Focus",
+            "properties": {
+                "vsfocus.opacity": {
+                    "type": "number",
+                    "default": 0.2,
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Opacity of unfocused text."
+                }
+            }
+        }
     },
     "scripts": {
         "lint": "eslint .",
