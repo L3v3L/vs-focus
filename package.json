@@ -3,10 +3,10 @@
     "displayName": "Focus",
     "description": "Hide everything but selected text",
     "publisher": "IvoBarros",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "icon": "icon.png",
     "galleryBanner": {
-        "color": "#25002b",
+        "color": "#006f6f",
         "theme": "dark"
     },
     "repository": {

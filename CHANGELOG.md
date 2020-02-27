@@ -2,6 +2,20 @@
 
 All notable changes to the Focus extension will be documented in this file.
 
+## [0.0.6] - 2020-02-27
+
+### Added
+
+- Apply focus also when in multi cursor selection
+
+### Fixed
+
+- fixed opacity not getting applied to all unfocused text
+
+### Changed
+
+- better vscode market banner color
+
 ## [0.0.5] - 2020-02-23
 
 ### Added
