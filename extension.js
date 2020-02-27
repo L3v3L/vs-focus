@@ -2,6 +2,20 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 
+function cut(min, max, current){
+    let currentNew = [];
+    current.forEach(item => {
+        if(min.isAfterOrEqual(item[0]) && max.isBeforeOrEqual(item[1])){
+            currentNew.push([item[0], min], [max, item[1]])
+            return;
+        }else{
+            currentNew.push([item[0], item[1]])
+            return;
+        }
+    });
+    return currentNew;
+}
+
 let dt = vscode.window.createTextEditorDecorationType({});
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -23,17 +37,26 @@ function activate(context) {
 
 		// Display a message box to the user
         const editor = vscode.window.activeTextEditor;
+
         let startSelection = editor.selection.start;
         let endSelection = editor.selection.end;
         let startDocument = new vscode.Position(0,0);
         let endDocument = editor.document.lineAt(editor.document.lineCount - 1).rangeIncludingLineBreak.end;
 
-        let RangeBefore = new vscode.Range(startDocument,startSelection);
-        let RangeAfter = new vscode.Range(endSelection, endDocument);
-
         dt.dispose();
 
-        if(startSelection.line != endSelection.line || startSelection.character != endSelection.character){
+        if(editor.selections.length > 1 || startSelection.line != endSelection.line || startSelection.character != endSelection.character){
+            //make position cuts
+            let ranges = editor.selections.reduce((megaRange, selection) => {
+                return cut(selection.start,selection.end, megaRange)
+            }, [[startDocument, endDocument]]);
+
+            //create regions from cut positions
+            ranges = ranges.map((item) => {
+                return new vscode.Range(item[0], item[1]);
+            });
+
+            //apply decorations
             let deco = {
                 opacity: vscode.workspace.getConfiguration('vsfocus').get('opacity')+" !important",
             }
@@ -44,9 +67,9 @@ function activate(context) {
 
             dt = vscode.window.createTextEditorDecorationType(deco);
 
-            editor.setDecorations(dt, [
-                RangeBefore,RangeAfter
-            ]);
+            editor.setDecorations(dt,
+                ranges
+            );
         }
 
 	});
